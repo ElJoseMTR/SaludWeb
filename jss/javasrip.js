@@ -72,6 +72,7 @@ function enviarMensaje() {
         mensaje: mensaje,
         asunto: asunto
     };
+    console.log('Datos enviados:', data); 
 
     fetch('https://api-base-de-datos.onrender.com/add_mensaje_admin', {
         method: 'POST',
