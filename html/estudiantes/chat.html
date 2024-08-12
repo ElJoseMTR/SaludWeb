@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUB sistema de reserva de instalaciones</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../css/fondop.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <img src="../../imagenes/logoIUB.png" alt="Logo IUB" class="logo">
+        <button id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar-content">
+            <ul class="sidebar-list">
+                <li>
+                    <button class="btn-close" id="menu-close">✖</button>
+                </li>
+                <li class="sidebar-item">
+                    <a href="principio1.html" class="sidebar-link">Inicio</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="chat.html" class="sidebar-link">Chat</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="locaciones.html" class="sidebar-link">Recursos de Salud</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="Ayuda.html" class="sidebar-link">Ayuda</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="ajustes.html" class="sidebar-link">Ajustes</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" id="salir" class="sidebar-link">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="mt-5">
+        <!-- Modal para el formulario -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Contenido del modal -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Formulario</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form id="myform" onsubmit="registerformulario(event)" method="post">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edad" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="edad" name="edad" min="1" max="100" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="carrera" class="form-label">Programa academico</label>
+                                <select class="form-control" id="carrera" name="carrera" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                                    <option value="Ingeniería en Seguridad y Salud en el Trabajo">Ingeniería en Seguridad y Salud en el Trabajo</option>
+                                    <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+                                    <option value="Ingeniería Mecatrónica">Ingeniería Mecatrónica</option>
+                                    <option value="Ingeniería Telemática">Ingeniería Telemática</option>
+                                    <option value="Administración de Negocios Internacionales">Administración de Negocios Internacionales</option>
+                                    <option value="Inteligencia de Negocios">Inteligencia de Negocios</option>
+                                    <option value="Diseño Gráfico">Diseño Gráfico</option>
+                                    <option value="Licenciatura en Educación Básica Primaria">Licenciatura en Educación Básica Primaria</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cuatrimestre" class="form-label">Cuatrimestre</label>
+                                <input type="number" class="form-control" id="cuatrimestre" name="cuatrimestre" min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="deporte" class="form-label">Deporte</label>
+                                <select type="text" class="form-control" id="deporte" name="deporte" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="futbol">Futbol</option>
+                                    <option value="taekwondo">Taekwondo</option>
+                                    <option value="danza">Danza</option>
+                                    <option value="béisbol">Béisbol</option>
+                                    <option value="baloncesto">Baloncesto</option>
+                                </select>    
+                            </div>
+                            <div class="mb-3">
+                                <label for="genero" class="form-label">Género</label>
+                                <select id="genero" name="genero" class="form-control" required>
+                                    <option value="">Seleccione...</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="otro">Otro</option>
+                                    <option value="prefiero_no_decirlo">Prefiero no decirlo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bts">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para preguntas -->
+        <div id="preguntasModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <!-- Contenido del modal -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Preguntas de Salud</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="F_ejercicio" class="form-label">¿Con cuanta frecuencia haces ejercicio?</label>
+                            <select id="F_ejercicio" name="F_ejercicio" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="diariamente">diariamente</option>
+                                <option value="3 veces a la semana">3 veces a la semana</option>
+                                <option value="1 vez a la semana">1 vez a la semana</option>
+                                <option value="nunca">Nunca</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="T_ejercicio" class="form-label">¿Cuanto tiempo le dedicas hacer ejercicio?</label>
+                            <select id="T_ejercicio" name="T_ejercicio" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="10 minutos">10 minutos</option>
+                                <option value="30 minutos">30 minutos</option>
+                                <option value="1 hora">1 hora</option>
+                                <option value="2 horas">2 horas</option>
+                                <option value="2 horas">0</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="C_frutas" class="form-label">¿Comes frutas?</label>
+                            <select id="C_frutas" name="C_frutas" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="muy pocas veces">muy pocas veces</option>
+                                <option value="de vez en cuando">de vez en cuando</option>
+                                <option value="casi siempre">casi siempre</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="C_chatarras" class="form-label">¿Comes comida chatarra?</label>
+                            <select id="C_chatarras" name="C_chatarras" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="muy pocas veces">muy pocas veces</option>
+                                <option value="de vez en cuando">de vez en cuando</option>
+                                <option value="casi siempre">casi siempre</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="T_dormir" class="form-label">¿Cuanto tiempo le dedicas a dormir?</label>
+                            <select id="T_dormir" name="T_dormir" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="5 horas">5 horas</option>
+                                <option value="8 horas">8 horas</option>
+                                <option value="10 horas">10 horas</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Fumas" class="form-label">¿Fumas?</label>
+                            <select id="Fumas" name="Fumas" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="alcohol" class="form-label">¿Tomas alcohol?</label>
+                            <select id="alcohol" name="alcohol" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="No">No</option>
+                                <option value="Si">Si</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="F_medico" class="form-label">¿Frecuencia con la que vas al medico?</label>
+                            <select id="F_medico" name="F_medico" class="form-control" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Cuando lo necesito">Cuando lo necesito</option>
+                                <option value="mensualmente">mensualmente</option>
+                                <option value="Entre 4 a 6 meses">Entre 4 a 6 meses</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="enfermedad" class="form-label">¿Tienes algunas enfermedades?</label>
+                            <input type="text" class="form-control" id="enfermedad" name="enfermedad" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="bts btn-primary" onclick="enviarPreguntas()">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <div class="chat-container">
+            <div class="chat-header">
+                <h4>Chat con Bot</h4>
+            </div>
+            <div id="chat-box" class="chat-body">
+                
+            </div>
+            <div class="chat-footer">
+                <div class="form-group">
+                    <input type="text" id="user-input" class="form-control" placeholder="Escribe tu mensaje...">
+                    <button id="send-btn" class="bts">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="notification-button" class="notification-button">
+        <i class="fas fa-bell"></i>
+    </div>
+
+    
+    <div id="notification-bar" class="notification-bar">
+        <ul class="notification-list">
+            <li><a href="chatadmin.html">Chat Administradores</a></li>
+            <li><a href="chatmedico.html">Chat medico</a></li>
+        </ul>
+    </div>
+
+    
+    <script src="../../jss/javasrip.js"></script>
+    <script src="../../jss/verific.js" defer></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script> 
+    <script src="../../jss/formu.js"></script>
+    <script src="../../jss/slapbarchat.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 Mejora Tus Hábitos Fisicos IUB</p>
+    </footer>
+</body>
+</html>

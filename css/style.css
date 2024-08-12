@@ -1,0 +1,497 @@
+.logo {
+    margin-left: 20px;
+  }
+
+.navbar {
+    background-color: #14244c ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.sidebar {
+    display: flex;
+  }
+  
+  /* Contenido del sidebar */
+  .sidebar-content {
+    width: 250px;
+    background-color: #fff;
+    color: #14244c; 
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: none; 
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  
+  .sidebar-active .sidebar-content {
+    display: block;
+    transform: translateX(0);
+  }
+  
+  /* Lista del sidebar */
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Elemento de la lista */
+  .sidebar-item {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  /* Enlaces del sidebar */
+  .sidebar-link {
+    text-decoration: none;
+    color: #14244c;
+    font-size: 18px;
+    display: block;
+    padding: 10px 15px; 
+    border-left: 4px solid #14244c; 
+    margin-left: -4px; 
+    transition: color 0.3s ease, border-left-color 0.3s ease;
+  }
+  
+  
+  .sidebar-link:hover {
+    color: #ffcc00; 
+  }
+  
+  
+  .btn-close {
+    background: none;
+    border: none;
+    color: #14244c; 
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: 130px; 
+}
+
+  
+  .btn-close:hover {
+    color: #ffcc00; 
+  }
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-toggler {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-menu {
+    display: flex;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#menu-toggle {
+    position: absolute;
+    left: 0;
+    top: 10px; 
+    font-size: 24px;
+    border: none;
+    background-color: #14244c;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  
+  #menu-toggle:hover {
+    background-color: #ffcc00; 
+  }
+  
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: white;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.nav-link:hover {
+    color: #ffcc00;
+}
+
+.container {
+    margin: 20px auto;
+    background: rgba(209, 202, 202, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+h1 {
+    color: #14244c;
+}
+
+.footer {
+  background-color: #14244c;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.notification-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: #14244c;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.notification-bar {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 200px;
+  display: none;
+  z-index: 1000;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-list li {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.notification-list li a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+.notification-list li a:hover {
+  background-color: #f0f0f0;
+}
+
+
+.d-none {
+    display: none;
+}
+ 
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+body{
+  text-decoration: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password .fa {
+    font-size: 18px;
+    color: #6c757d;
+}
+.back-button {
+    
+    top: 10px;
+    right: 10px; 
+    background-color: #14244c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.back-button i {
+    margin-right: 5px;
+}
+
+.back-button:hover {
+    background-color: #ffcc00;
+}
+
+/* Contenedor del chat */
+.chat-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+  /* Encabezado del chat */
+  .chat-header {
+    padding: 15px;
+    background-color: #14244c;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+  
+
+.chat-body {
+  height: 500px;
+  overflow-y: scroll;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.chat-footer {
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+  
+  /* Entrada de texto y botón de envío */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+  }
+  .bts {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #14244c;
+    color: #fff;
+    text-decoration: none;
+  }
+  .bta {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #ffcc00;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+
+  /* Estilos para el contenedor de mensajes del usuario */
+  .user-message {
+    display: block;
+    max-width: 80%;
+    margin-left: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #d1e7dd;
+    border-radius: 15px;
+    color: #0f5132;
+    text-align: right; 
+}
+
+/* Estilos para el contenedor de mensajes del bot */
+.bot-message {
+    display: block;
+    max-width: 80%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #cfe2ff;
+    border-radius: 15px;
+    color: #084298;
+    text-align: left; 
+}
+#chat-box {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/*para los videos en plan de entrenmiento*/
+.category {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.category:hover {
+  background-color: #e9e9e9;
+}
+
+.video-list {
+  display: none;
+  margin-top: 20px;
+}
+
+.video-list.active {
+  display: block;
+}
+
+.video-item {
+  margin-bottom: 15px;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor en la página */
+  padding: 20px; /* Espacio interno del contenedor */
+}
+
+/* Estilo para el encabezado de la sección */
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Estilo para el badge que muestra el total de usuarios */
+.badge {
+  background-color: #007bff; /* Color de fondo */
+  color: #fff; /* Color del texto */
+  padding: 5px 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 18px;
+}
+
+/* Estilo para la tarjeta que contiene la tabla */
+.card {
+  border: 1px solid #ddd; /* Borde de la tarjeta */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+  overflow: hidden; /* Oculta el desbordamiento del contenido */
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+  background-color: #f8f9fa; /* Color de fondo del encabezado */
+  padding: 15px; /* Espaciado interno */
+  border-bottom: 1px solid #ddd; /* Borde inferior */
+}
+
+/* Título de la tarjeta */
+.card-title {
+  font-size: 20px;
+  margin: 0; /* Elimina el margen por defecto */
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  padding: 15px; /* Espaciado interno */
+}
+
+/* Estilo para la tabla */
+.table {
+  width: 100%; /* Ancho completo de la tabla */
+  border-collapse: collapse; /* Colapsa los bordes */
+  margin-bottom: 0; /* Elimina el margen inferior */
+}
+
+/* Estilo para las filas de la tabla */
+.table th, .table td {
+  padding: 12px; /* Espaciado interno de las celdas */
+  border: 1px solid #ddd; /* Borde de las celdas */
+  text-align: left; /* Alineación del texto */
+}
+
+/* Estilo para los encabezados de columna */
+.table th {
+  background-color: #f4f4f4; /* Color de fondo de los encabezados */
+  font-weight: bold; /* Negrita en los encabezados */
+}
+
+/* Estilo para las filas de la tabla al pasar el ratón */
+.table tbody tr:hover {
+  background-color: #f1f1f1; /* Color de fondo al pasar el ratón */
+}
+
+/* Botones dentro de la tabla */
+.table .btn {
+  margin-right: 5px; /* Espaciado entre los botones */
+}

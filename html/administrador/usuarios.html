@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUB sistema de reserva de instalaciones</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../css/fondoadmin.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="../../imagenes/logoIUB.png" alt="Logo IUB" class="logo">
+        <button id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <div class="sidebar">
+        <div id="sidebar" class="sidebar-content">
+            <ul class="sidebar-list">
+                <li>
+                    <button class="btn-close" id="menu-close">✖</button>
+                </li>
+                <li class="mb-3">
+                    <a href="principio1admin.html" class="sidebar-link">Inicio</a>
+                </li>
+                <li class="mb-3">
+                    <a href="chatAdmin.html" class="sidebar-link">Chat</a>
+                </li>
+                <li class="mb-3">
+                    <a href="usuarios.html" class="sidebar-link">Usuarios</a>
+                </li>
+                <li class="mb-3">
+                    <a href="estadisticas.html" class="sidebar-link">Estadísticas</a>
+                </li>
+                <li class="mb-3">
+                    <a href="#" id="salir" class="sidebar-link">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mt-4">
+        
+
+        <h2>Total de Usuarios: <span id="totalUsuarios"></span></h2>
+     
+
+        <table id="tablaUsuarios" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Datos de los usuarios se cargarán aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal Editar Usuario -->
+    <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarUsuarioLabel">Editar Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarUsuario">
+                        <div class="form-group">
+                            <label for="inputCorreo">Correo</label>
+                            <input type="email" class="form-control" id="inputCorreo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="inputPassword" required>
+                        </div>
+                        <input type="hidden" id="inputUser">
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ver Usuario -->
+    <div class="modal fade" id="modalVerUsuario" tabindex="-1" role="dialog" aria-labelledby="modalVerUsuarioLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalVerUsuarioLabel">Detalles del Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Usuario:</strong> <span id="verUser"></span></p>
+                    <p><strong>Nombre:</strong> <span id="verNombre"></span></p>
+                    <p><strong>Apellido:</strong> <span id="verApellido"></span></p>
+                    <p><strong>Edad:</strong> <span id="verEdad"></span></p>
+                    <p><strong>Carrera:</strong> <span id="verCarrera"></span></p>
+                    <p><strong>Cuatrimestre:</strong> <span id="verCuatrimestre"></span></p>
+                    <p><strong>Deporte:</strong> <span id="verDeporte"></span></p>
+                    <p><strong>Género:</strong> <span id="verGenero"></span></p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnActualizar" data-user="">Actualizar</button>
+                        <button type="button" class="btn btn-danger" id="btnEliminar" data-user="">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar Detalles Usuario -->
+    <div class="modal fade" id="modalEditarUsuarioDetalles" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuarioDetallesLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarUsuarioDetallesLabel">Editar Detalles del Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarDetallesUsuario">
+                        <input type="text" id="inputUsuario" readonly />
+                        <div class="form-group">
+                            <label for="inputNombre">Nombre</label>
+                            <input type="text" class="form-control" id="inputNombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputApellido">Apellido</label>
+                            <input type="text" class="form-control" id="inputApellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEdad">Edad</label>
+                            <input type="number" class="form-control" id="inputEdad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCarrera">Carrera</label>
+                            <input type="text" class="form-control" id="inputCarrera" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCuatrimestre">Cuatrimestre</label>
+                            <input type="number" class="form-control" id="inputCuatrimestre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDeporte">Deporte</label>
+                            <input type="text" class="form-control" id="inputDeporte" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputGenero">Género</label>
+                            <input type="text" class="form-control" id="inputGenero" required>
+                        </div>
+                        <input type="hidden" id="inputUserDetalles">
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../jss/javasrip.js"></script>
+    <script src="../../jss/usuarios.js"></script>
+    
+    <footer class="footer fixed-bottom text-white text-center py-2">
+        <p>&copy; 2024 Mejora Tus Hábitos Físicos IUB</p>
+    </footer>
+    <br><br><br><br>
+</body>
+</html>

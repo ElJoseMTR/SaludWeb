@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IUB sistema de dieta</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../css/fondop.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="../../imagenes/logoIUB.png" alt="Logo IUB" class="logo">
+        <button id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar">
+        <div id="sidebar" class="sidebar-content">
+            <ul class="sidebar-list">
+                <li>
+                    <button class="btn-close" id="menu-close">✖</button>
+                </li>
+                <li class="sidebar-item">
+                    <a href="principio1.html" class="sidebar-link">Inicio</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="chat.html" class="sidebar-link">Chat</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="locaciones.html" class="sidebar-link">Recursos de Salud</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="Ayuda.html" class="sidebar-link">Ayuda</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="ajustes.html" class="sidebar-link">Ajustes</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" id="salir" class="sidebar-link">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Recomendaciones de Dieta</h1>
+        <div class="category" data-category="perder-peso">Objetivo: Perder Peso</div>
+        <div id="diet-perder-peso" class="video-list">
+            <p>Te recomiendo una dieta rica en proteínas magras, verduras y frutas frescas, y baja en carbohidratos refinados y azúcares. Intenta hacer 5 comidas pequeñas al día y beber al menos 8 vasos de agua.</p>
+            <img src="../../imagenes/secos.jpg" alt="">
+        </div>
+        <div class="category" data-category="ganar-masa-muscular">Objetivo: Ganar Masa Muscular</div>
+        <div id="diet-ganar-masa-muscular" class="video-list">
+            <p>Te recomiendo una dieta rica en proteínas como pollo, pescado, huevos, y legumbres, junto con carbohidratos complejos como arroz integral y avena. No olvides incluir grasas saludables como aguacate y nueces. Bebe al menos 8 vasos de agua y come 5 veces al día.</p>
+            <img src="../../imagenes/legumbres.jpg" alt="">
+        </div>
+        <div class="category" data-category="mantener-peso-saludable">Objetivo: Mantener un Peso Saludable</div>
+        <div id="diet-mantener-peso-saludable" class="video-list">
+            <p>Te recomiendo una dieta equilibrada con una variedad de alimentos de todos los grupos alimenticios: proteínas, carbohidratos, y grasas saludables. Come 4-5 veces al día y asegúrate de beber suficiente agua.</p>
+            <img src="../../imagenes/avenas.jpg" alt="">
+        </div>
+        <div class="category" data-category="mejorar-salud-general">Objetivo: Mejorar la Salud General</div>
+        <div id="diet-mejorar-salud-general" class="video-list">
+            <p>Te recomiendo una dieta basada en alimentos naturales y frescos, evitando alimentos procesados. Incluye muchas verduras, frutas, granos enteros, y proteínas magras. Mantente hidratado/a y come al menos 5 veces al día.</p>
+            <img src="../../imagenes/arroz.jpg" alt="">
+        </div>
+    </div>
+
+    <script src="../../jss/javasrip.js"></script>
+    <script>
+        
+        document.querySelectorAll('.category').forEach(category => {
+            category.addEventListener('click', () => {
+                document.querySelectorAll('.video-list').forEach(list => {
+                    list.classList.remove('active');
+                });
+                document.getElementById(`diet-${category.dataset.category}`).classList.add('active');
+            });
+        });
+    </script>
+    <footer class="footer">
+        <p>&copy; 2024 Mejora Tus Hábitos Físicos IUB</p>
+    </footer>
+</body>
+
+</html>

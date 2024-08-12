@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../css/fondoadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    
+    <nav class="navbar">
+        <img src="../../imagenes/logoIUB.png" alt="Logo IUB" class="logo">
+        <button id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="sidebar">
+        <div id="sidebar" class="sidebar-content">
+        
+            <ul class="sidebar-list">
+                <li>
+                    <button class="btn-close" id="menu-close">✖</button>
+                </li>
+            <li class="mb-3">
+                <a href="principio1medico.html" class="sidebar-link">Inicio</a>
+            </li>
+            <li class="mb-3">
+                <a href="chatmedico.html" class="sidebar-link">Chat</a>
+            </li>
+            <li class="mb-3">
+                <a href="usuario.html" class="sidebar-link">Usuarios</a>
+            </li>
+            <li class="mb-3">
+                <a href="estadisticas.html" class="sidebar-link">Estadisticas</a>
+            </li>
+            <li class="mb-3">
+                <a href="#" id="salir" class="sidebar-link">Salir</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="mt-5">
+        
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class=" modal-dialog">
+                
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Formulario</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="myform" onsubmit="registerformulariomedico(event)" method="post">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="apellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="edad" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="edad" name="edad" min="1" max="100"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="CC" class="form-label">CC</label>
+                                <input type="number" class="form-control" id="CC" name="CC" required>
+                            </div>
+
+                            <button type="submit" class="bts btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+        <div class="container">
+            <h2>Mensajes</h2>
+            <div id="admin-messages"></div>
+        </div>
+        <div class="modal fade" id="responsesModal" tabindex="-1" aria-labelledby="responsesModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="responsesModalLabel">Respuestas</h5>
+                  
+                </div>
+                <div class="modal-body" id="responsesModalBody">
+                 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="reloadButton" class="bts btn-secondary">Cerrar</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script src="../../jss/javasrip.js"></script>
+    <script src="../../jss/verific.js" defer></script>
+    <script src="../../js/bootstrap.bundle.min.js"></script> 
+    <script src="../../jss/formumedico.js"></script>
+    <script src="../../jss/mensajesparamedico.js"></script>
+    
+    <footer class="footer">
+        <p>&copy; 2024 Mejora Tus Hábitos Fisicos IUB</p>
+    </footer>
+</body>
+
+</html>
