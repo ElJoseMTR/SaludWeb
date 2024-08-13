@@ -5,21 +5,43 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 document.getElementById('totalUsuarios').textContent = data.length;
                 const tablaUsuarios = document.getElementById('tablaUsuarios').getElementsByTagName('tbody')[0];
-                tablaUsuarios.innerHTML = '';
-
-                data.forEach(usuario => {
-                    const fila = tablaUsuarios.insertRow();
-                    fila.innerHTML = `
-                        <td>${usuario.user}</td>
-                        <td>${usuario.correo}</td>
-                        <td>${usuario.password}</td>
-                        <td>
-                            <button class="btn btn-info btn-sm ver" data-user="${usuario.user}">Ver</button>
-                            <button class="btn btn-primary btn-sm editar" data-user="${usuario.user}">Editar</button>
-                            <button class="btn btn-danger btn-sm eliminar" data-user="${usuario.user}">Eliminar</button>
-                        </td>
-                    `;
-                });
+                if (!$.fn.DataTable.isDataTable('#tablaUsuarios')) {
+                    $('#tablaUsuarios').DataTable({
+                        "paging": true,
+                        "searching": true,
+                        "ordering": true,
+                        "language": {
+                            "url": "//cdn.datatables.net/plug-ins/1.13.1/i18n/Spanish.json"
+                        }
+                    });
+                }
+    
+                // Función para actualizar la tabla con los datos filtrados
+                function actualizarTabla(datos) {
+                    tablaUsuarios.innerHTML = '';
+    
+                    datos.forEach(usuario => {
+                        const fila = tablaUsuarios.insertRow();
+                        fila.innerHTML = `
+                            <td>${usuario.user}</td>
+                            <td>${usuario.correo}</td>
+                            <td>${usuario.password}</td>
+                            <td>
+                                <button class="btn btn-info btn-sm ver" data-user="${usuario.user}">Ver</button>
+                                <button class="btn btn-primary btn-sm editar" data-user="${usuario.user}">Editar</button>
+                                <button class="btn btn-danger btn-sm eliminar" data-user="${usuario.user}">Eliminar</button>
+                            </td>
+                        `;
+                    });
+    
+                    // Actualiza DataTables
+                    $('#tablaUsuarios').DataTable().clear().rows.add($(tablaUsuarios).find('tr')).draw();
+                }
+    
+                
+    
+                // Actualiza la tabla con todos los usuarios inicialmente
+                actualizarTabla(data);
 
                 document.querySelectorAll('.ver').forEach(button => {
                     button.addEventListener('click', function () {
@@ -41,6 +63,11 @@ document.addEventListener('DOMContentLoaded', function () {
                         eliminarUsuario(user);
                     });
                 });
+                document.getElementById('searchUser').addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase();
+                    const datosFiltrados = data.filter(usuario => usuario.user.toLowerCase().includes(searchTerm));
+                    actualizarTabla(datosFiltrados);
+                });
             })
             .catch(error => console.error('Error al obtener usuarios:', error));
     }
@@ -53,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Usuario no encontrado');
                     return;
                 }
-                console.log(data.frecuencia_ejercicio);
+                console.log(data);
                 document.getElementById('verUser').textContent = data.user || '';
                 document.getElementById('verF_ejercicios').textContent = data.frecuencia_ejercicio || '';
                 document.getElementById('verT_ejercicios').textContent = data.tiempo_ejercicio || '';
@@ -66,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('verenfermedades').textContent = data.enfermedades || '';
     
                 // Actualizar el atributo data-user de los botones
-                document.getElementById('btnActualizar').setAttribute('data-user', user);
+                
                 document.getElementById('btnEliminar').setAttribute('data-user', user);
     
                 $('#modalVerUsuario').modal('show');
@@ -152,3 +179,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     obtenerUsuarios();
 });
+
