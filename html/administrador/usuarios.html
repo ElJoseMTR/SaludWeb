@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +11,16 @@
     <link rel="stylesheet" href="../../css/fondoadmin.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 </head>
+
 <body>
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <img src="../../imagenes/logoIUB.png" alt="Logo IUB" class="logo">
-        <button id="menu-toggle">
+        <button id="menu-toggle" class="btn btn-outline-light">
             <i class="fas fa-bars"></i>
         </button>
     </nav>
-    <div class="sidebar">
-        <div id="sidebar" class="sidebar-content">
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
             <ul class="sidebar-list">
                 <li>
                     <button class="btn-close" id="menu-close">✖</button>
@@ -42,28 +44,26 @@
         </div>
     </div>
     <div class="container mt-4">
-        
-
         <h2>Total de Usuarios: <span id="totalUsuarios"></span></h2>
-     
 
-        <table id="tablaUsuarios" class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Usuario</th>
-                    <th>Correo</th>
-                    <th>Contraseña</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Datos de los usuarios se cargarán aquí -->
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table id="tablaUsuarios" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <!-- Modal Editar Usuario -->
-    <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
+    <div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuarioLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,8 +90,8 @@
         </div>
     </div>
 
-    <!-- Modal Ver Usuario -->
-    <div class="modal fade" id="modalVerUsuario" tabindex="-1" role="dialog" aria-labelledby="modalVerUsuarioLabel" aria-hidden="true">
+    <div class="modal fade" id="modalVerUsuario" tabindex="-1" role="dialog" aria-labelledby="modalVerUsuarioLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -118,8 +118,8 @@
         </div>
     </div>
 
-    <!-- Modal Editar Detalles Usuario -->
-    <div class="modal fade" id="modalEditarUsuarioDetalles" tabindex="-1" role="dialog" aria-labelledby="modalEditarUsuarioDetallesLabel" aria-hidden="true">
+    <div class="modal fade" id="modalEditarUsuarioDetalles" tabindex="-1" role="dialog"
+        aria-labelledby="modalEditarUsuarioDetallesLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -130,7 +130,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="formEditarDetallesUsuario">
-                        <input type="text" id="inputUsuario" readonly />
+                        <input type="text" id="inputUsuario" class="form-control" readonly />
                         <div class="form-group">
                             <label for="inputNombre">Nombre</label>
                             <input type="text" class="form-control" id="inputNombre" required>
@@ -149,7 +149,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputCuatrimestre">Cuatrimestre</label>
-                            <input type="number" class="form-control" id="inputCuatrimestre" required>
+                            <input type="text" class="form-control" id="inputCuatrimestre" required>
                         </div>
                         <div class="form-group">
                             <label for="inputDeporte">Deporte</label>
@@ -159,7 +159,7 @@
                             <label for="inputGenero">Género</label>
                             <input type="text" class="form-control" id="inputGenero" required>
                         </div>
-                        <input type="hidden" id="inputUserDetalles">
+                        <input type="hidden" id="inputUser">
                         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                     </form>
                 </div>
@@ -167,7 +167,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -175,10 +174,7 @@
     <script src="../../js/main.js"></script>
     <script src="../../jss/javasrip.js"></script>
     <script src="../../jss/usuarios.js"></script>
-    
-    <footer class="footer fixed-bottom text-white text-center py-2">
-        <p>&copy; 2024 Mejora Tus Hábitos Físicos IUB</p>
-    </footer>
-    <br><br><br><br>
 </body>
+
 </html>
+
