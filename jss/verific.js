@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',async function() {
                 const respuesta = confirm("¿Quieres extender la seccion?");
                 if (respuesta) {
 
-                    const response = await fetch(`https://api-base-de-datos.onrender.com/login?user=${user}&password=${password}`, {
+                    const response = await fetch(`http://127.0.0.1:3000/login?user=${user}&password=${password}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -49,3 +49,4 @@ document.addEventListener('DOMContentLoaded',async function() {
         window.location.href = '../../index.html';
     }
 });
+
