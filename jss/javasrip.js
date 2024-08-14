@@ -23,7 +23,7 @@ function togglePassword() {
 
 function btnreportes(){
 
-    window.location.href = 'http://127.0.0.1:3000/download_excel';
+    window.location.href = 'https://api-base-de-datos.onrender.com/download_excel';
 
 
 }
