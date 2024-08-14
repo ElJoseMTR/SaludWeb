@@ -421,8 +421,8 @@ async function loginuser(event) {
     const data = await response.json();
     if (data.informacion === "Inicio de sesión exitoso") {
         window.location.href = '../html/estudiantes/principio1.html';
+        localStorage.setItem('token', data.token);
         localStorage.setItem('user', username);
-        localStorage.setItem('inicio', 'on')
     } else {
         loginadmin(event);
     }
@@ -444,7 +444,7 @@ async function loginadmin(event) {
     if (data.informacion === "Inicio de sesión exitosoo") {
         window.location.href = '../html/administrador/principio1admin.html';
         localStorage.setItem('user', username);
-        localStorage.setItem('inicio', 'on')
+        localStorage.setItem('token', data.token);
     } else {
         loginmedico(event);
     }
@@ -466,7 +466,7 @@ async function loginmedico(event) {
     if (data.informacion === "Inicio de sesión exitosoo") {
         window.location.href = '../html/medico/principio1medico.html';
         localStorage.setItem('user', username);
-        localStorage.setItem('inicio', 'on')
+        localStorage.setItem('token', data.token);
     } else {
         alert("Lo siento, no has pasado");
     }
