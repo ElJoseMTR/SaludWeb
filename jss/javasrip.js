@@ -441,7 +441,7 @@ async function loginadmin(event) {
     });
 
     const data = await response.json();
-    if (data.informacion === "Inicio de sesión exitosoo") {
+    if (data.informacion === "Inicio de sesión exitoso") {
         window.location.href = '../html/administrador/principio1admin.html';
         localStorage.setItem('user', username);
         localStorage.setItem('token', data.token);
@@ -463,7 +463,7 @@ async function loginmedico(event) {
     });
 
     const data = await response.json();
-    if (data.informacion === "Inicio de sesión exitosoo") {
+    if (data.informacion === "Inicio de sesión exitoso") {
         window.location.href = '../html/medico/principio1medico.html';
         localStorage.setItem('user', username);
         localStorage.setItem('token', data.token);
