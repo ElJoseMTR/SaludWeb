@@ -21,6 +21,13 @@ function togglePassword() {
     }
 }
 
+function btnreportes(){
+
+    window.location.href = 'http://127.0.0.1:3000/download_excel';
+
+
+}
+
 function enviarMensajemedico() {
     const user = localStorage.getItem("user");
     const usermedico = document.getElementById("destinatario").value;
