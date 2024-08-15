@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',async function() {
                 const respuesta = confirm("¿Quieres extender la seccion?");
                 if (respuesta) {
 
-                    const response = await fetch(`http://127.0.0.1:3000/login?user=${user}&password=${password}`, {
+                    const response = await fetch(`https://api-base-de-datos.onrender.com/login?user=${user}&password=${password}`, {
                         method: 'GET',
                         headers: {
                             'Content-Type': 'application/json',
@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded',async function() {
                         localStorage.setItem('token', data.token);
                     }else{
                         window.location.href = '../../index.html';
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('user');
                     }
                 }else{
                     window.location.href = '../../index.html';
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded',async function() {
                     localStorage.removeItem('user');
                 }
             } else {
-                console.log('usuae', user);
+                console.log('user', user);
                 console.log('contraseña', password);
             }
         } catch (error) {
