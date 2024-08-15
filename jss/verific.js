@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',async function() {
-    function verificarToken() {
+    async function verificarToken() {
     const token = localStorage.getItem('token');
 
     if (token) {
