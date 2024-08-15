@@ -52,6 +52,6 @@ document.addEventListener('DOMContentLoaded',async function() {
         window.location.href = '../../index.html';
     }
     }
+    setInterval(verificarToken, 5000);
 });
-setInterval(verificarToken, 5000);
 
