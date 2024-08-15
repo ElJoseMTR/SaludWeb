@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded',async function() {
+    function verificarToken() {
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -50,5 +51,7 @@ document.addEventListener('DOMContentLoaded',async function() {
         
         window.location.href = '../../index.html';
     }
+    }
 });
+setInterval(verificarToken, 5000);
 
