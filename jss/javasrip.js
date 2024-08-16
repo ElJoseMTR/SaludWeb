@@ -117,7 +117,7 @@ document.getElementById("salir").addEventListener("click", function (event) {
     var confirmacion = confirm("¿Estás seguro que quieres salir?");
     if (confirmacion) {
         localStorage.removeItem('user');
-        localStorage.removeItem('inicio')
+        localStorage.removeItem('token');
         window.location.href = "../../index.html";
     }
 });
