@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                         if (data.informacion === "Inicio de sesión exitoso") {
                             localStorage.setItem('token', data.token);
                         } else {
-                            const response = await fetch(`https://api-base-de-datos.onrender.com/loginAdmin?user=${username}&password=${password}`, {
+                            const response = await fetch(`https://api-base-de-datos.onrender.com/loginAdmin?user=${user}&password=${password}`, {
                                 method: 'GET',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -39,11 +39,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                             const data = await response.json();
                             if (data.informacion === "Inicio de sesión exitosoo") {
-                                window.location.href = '../html/administrador/principio1admin.html';
-                                localStorage.setItem('user', username);
-                                localStorage.setItem('inicio', 'on')
+                                localStorage.setItem('token', data.token);
                             } else {
-                                const response = await fetch(`https://api-base-de-datos.onrender.com/loginMedico?user=${username}&password=${password}`, {
+                                const response = await fetch(`https://api-base-de-datos.onrender.com/loginMedico?user=${user}&password=${password}`, {
                                     method: 'GET',
                                     headers: {
                                         'Content-Type': 'application/json',
@@ -52,9 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                                 const data = await response.json();
                                 if (data.informacion === "Inicio de sesión exitosoo") {
-                                    window.location.href = '../html/medico/principio1medico.html';
-                                    localStorage.setItem('user', username);
-                                    localStorage.setItem('inicio', 'on')
+                                    localStorage.setItem('token', data.token);
                                 } else {
                                     window.location.href = '../../index.html';
                                     localStorage.removeItem('token');
