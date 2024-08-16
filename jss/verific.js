@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded',async function() {
         try {
             
             const decoded = jwt_decode(token);
-            console.log('Token decodificado:', decoded);
 
          
             const user = decoded.user;
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded',async function() {
            
             const ahora = Math.floor(Date.now() / 1000);
             if (ahora >= exp) {
-                console.log('el token se fue');
+              
                 const respuesta = confirm("¿Quieres extender la seccion?");
                 if (respuesta) {
 
@@ -41,8 +40,7 @@ document.addEventListener('DOMContentLoaded',async function() {
                     localStorage.removeItem('user');
                 }
             } else {
-                console.log('user', user);
-                console.log('contraseña', password);
+               
             }
         } catch (error) {
             console.error('errors', error);
