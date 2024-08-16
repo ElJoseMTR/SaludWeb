@@ -1,4 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    fetch('https://api-base-de-datos.onrender.com/usuarios_con_enfermedades')
+    .then(response => response.json())
+    .then(data => {
+        const ctxEnfermedades = document.getElementById('enfermedadesChart').getContext('2d');
+        new Chart(ctxEnfermedades, {
+            type: 'bar',
+            data: {
+                labels: ['Usuarios con enfermedades', 'Usuarios sin enfermedades'],
+                datasets: [
+                    {
+                        label: 'Usuarios con enfermedades',
+                        data: [data.con_enfermedades, 0],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Usuarios sin enfermedades',
+                        data: [0, data.sin_enfermedades],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => console.
+
   
     fetch('https://api-base-de-datos.onrender.com/usuarios_fuman')
         .then(response => response.json())
