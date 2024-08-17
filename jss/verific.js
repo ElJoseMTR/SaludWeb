@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                             });
 
                             const data = await response.json();
-                            if (data.informacion === "Inicio de sesión exitosoo") {
+                            if (data.informacion === "Inicio de sesión exitoso") {
                                 localStorage.setItem('token', data.token);
                             } else {
                                 const response = await fetch(`https://api-base-de-datos.onrender.com/loginMedico?user=${user}&password=${password}`, {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                                 });
 
                                 const data = await response.json();
-                                if (data.informacion === "Inicio de sesión exitosoo") {
+                                if (data.informacion === "Inicio de sesión exitoso") {
                                     localStorage.setItem('token', data.token);
                                 } else {
                                     window.location.href = '../../index.html';
