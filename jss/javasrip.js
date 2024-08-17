@@ -140,7 +140,7 @@ function sendMessage() {
         addUserMessage(userInput, user); // Pasar el nombre del usuario
         document.getElementById('user-input').value = '';
 
-        fetch('https://api-base-de-datos.onrender.com/webhooks/rest/webhook', {
+        fetch('http://localhost:5005/webhooks/rest/webhook', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
