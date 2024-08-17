@@ -73,6 +73,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             window.location.href = '../../index.html';
         }
     }
-    setInterval(verificarToken, 10000);
+    setInterval(verificarToken, 5000);
 });
 
